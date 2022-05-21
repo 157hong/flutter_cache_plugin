@@ -24,13 +24,10 @@ class _MyAppState extends State<MyApp> {
   String _cleanCache = 'Unknown';
   final _flutterCachePlugin = FlutterCachePlugin();
 
-
-
   @override
   void initState() {
     super.initState();
     _getTemporaryDirectory();
-    _getTotalCacheSize();
   }
 
   // 临时目录下创建文件str，将字符串写入文件，返回文件目录
@@ -41,13 +38,14 @@ class _MyAppState extends State<MyApp> {
       File f = File("${temporaryDirectory}/str.txt");
       f.writeAsString("Temporary File");
       print('exists: ${f.existsSync()}');
-      print("content:${await f.readAsString()}");
+      print("content: ${await f.readAsString()}");
     } on PlatformException {
       temporaryDirectory = 'Failed to get Temporary Directory.';
     }
     if (!mounted) return;
     setState(() {
       _temporaryDirectory = temporaryDirectory;
+      _getTotalCacheSize();
     });
   }
 
@@ -70,16 +68,17 @@ class _MyAppState extends State<MyApp> {
     String cleanCache;
     try{
       if (await _flutterCachePlugin.clearAllCache()){
-        cleanCache = "clean success";
+        cleanCache = "success";
       }else {
-        cleanCache = "clean failure";
+        cleanCache = "failure";
       }
-      print('${cleanCache}');
     } on PlatformException {
       cleanCache = 'Failed to clean cache.';
     }
     setState((){
       _cleanCache = cleanCache;
+      _getTotalCacheSize();
+      print('clean ${_cleanCache}');
     });
   }
 
@@ -95,11 +94,10 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("缓存文件路劲：\n${_temporaryDirectory}"),
+              Text("缓存文件路劲：\n${_temporaryDirectory}/str.txt"),
               Text("缓存大小：${_cacheSize}"),
               ElevatedButton(onPressed: (){
                 _clearAllCache();
-                _getTotalCacheSize();
               }, child: Text('clean cache'))
             ],
           ),
