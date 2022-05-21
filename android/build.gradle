@@ -1,0 +1,68 @@
+group 'com.example.flutter_cache_plugin'
+version '1.0'
+
+//获取local.properties配置文件
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+//获取flutter的sdk路径
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+
+buildscript {
+    repositories {
+//        google()
+//        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/google'
+            allowInsecureProtocol = true}
+        maven { url 'https://maven.aliyun.com/repository/jcenter'
+            allowInsecureProtocol = true}
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
+            allowInsecureProtocol = true}
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+//        google()
+//        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/google'
+            allowInsecureProtocol = true}
+        maven { url 'https://maven.aliyun.com/repository/jcenter'
+            allowInsecureProtocol = true}
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
+            allowInsecureProtocol = true}
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.6.0'
+    compileOnly files("$flutterRoot/bin/cache/artifacts/engine/android-arm/flutter.jar")
+    compileOnly 'androidx.annotation:annotation:1.1.0'
+}
