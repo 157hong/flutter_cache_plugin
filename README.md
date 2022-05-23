@@ -3,9 +3,6 @@
 A new Flutter project.
 
 ## Getting Started
-# flutter_cache_plugin：
-
-
 
 ### 项目简介：
 
@@ -37,15 +34,15 @@ A new Flutter project.
 
 ##### 添加插件：
 
-##### <img src="C:\Users\admin\Desktop\flutter_plugin\04.jpg" alt="04" style="zoom:60%;" />
-
+![04](https://user-images.githubusercontent.com/86814059/169726856-ef14070c-ff76-440b-a39c-c6e0a1d3b191.jpg)
 
 
 ##### 获取应用缓存目录
 
 获取用来装缓存数据的目录
 
-##### <img src="01.jpg" alt="01" style="zoom:67%;" />
+
+![01](https://user-images.githubusercontent.com/86814059/169726874-99611f74-cb8d-4a9b-b437-942b01b3faff.jpg)
 
 
 
@@ -53,7 +50,8 @@ A new Flutter project.
 
 根据文件循环计算出缓存文件的大小
 
-<img src="02.jpg" alt="02" style="zoom:67%;" />
+![02](https://user-images.githubusercontent.com/86814059/169726881-4bd56bd8-7d67-41b8-9293-9150f088b654.jpg)
+
 
 
 
@@ -61,8 +59,8 @@ A new Flutter project.
 
 通过递归的方式，删除缓存目录下所有的文件。
 
-<img src="03.jpg" alt="03" style="zoom:67%;" />
 
+![03](https://user-images.githubusercontent.com/86814059/169726887-7b4c036f-be46-4175-9b52-3b798f1022b7.jpg)
 
 
 
