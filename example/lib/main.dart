@@ -75,9 +75,9 @@ class _MyAppState extends State<MyApp> {
     } on PlatformException {
       cleanCache = 'Failed to clean cache.';
     }
+    _getTotalCacheSize();
     setState((){
       _cleanCache = cleanCache;
-      _getTotalCacheSize();
       print('clean ${_cleanCache}');
     });
   }
@@ -94,7 +94,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("缓存文件路劲：\n${_temporaryDirectory}/str.txt"),
+              Text("缓存文件路劲：\n${_temporaryDirectory}"),
               Text("缓存大小：${_cacheSize}"),
               ElevatedButton(onPressed: (){
                 _clearAllCache();

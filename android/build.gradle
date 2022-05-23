@@ -18,14 +18,14 @@ if (flutterRoot == null) {
 
 buildscript {
     repositories {
-//        google()
-//        mavenCentral()
-        maven { url 'https://maven.aliyun.com/repository/google'
-            allowInsecureProtocol = true}
-        maven { url 'https://maven.aliyun.com/repository/jcenter'
-            allowInsecureProtocol = true}
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
-            allowInsecureProtocol = true}
+        google()
+        mavenCentral()
+//        maven { url 'https://maven.aliyun.com/repository/google'
+//            allowInsecureProtocol = true}
+//        maven { url 'https://maven.aliyun.com/repository/jcenter'
+//            allowInsecureProtocol = true}
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
+//            allowInsecureProtocol = true}
     }
 
     dependencies {
@@ -35,14 +35,14 @@ buildscript {
 
 rootProject.allprojects {
     repositories {
-//        google()
-//        mavenCentral()
-        maven { url 'https://maven.aliyun.com/repository/google'
-            allowInsecureProtocol = true}
-        maven { url 'https://maven.aliyun.com/repository/jcenter'
-            allowInsecureProtocol = true}
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
-            allowInsecureProtocol = true}
+        google()
+        mavenCentral()
+//        maven { url 'https://maven.aliyun.com/repository/google'
+//            allowInsecureProtocol = true}
+//        maven { url 'https://maven.aliyun.com/repository/jcenter'
+//            allowInsecureProtocol = true}
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
+//            allowInsecureProtocol = true}
     }
 }
 
